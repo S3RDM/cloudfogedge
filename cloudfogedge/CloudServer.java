@@ -17,7 +17,7 @@ public class CloudServer{
     }
 
     public void resumen(){
-        System.out.println("\n--- Resumen Cloud Server ---");
+        System.out.println("\nResumen Cloud Server:");
         for (SensorData data : dataList) {
             System.out.println(data);
         }

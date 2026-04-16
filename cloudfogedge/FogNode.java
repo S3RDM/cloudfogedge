@@ -1,6 +1,6 @@
 package cloudfogedge;
 
-public class FogNode {
+public class FogNode{
     private CloudServer cloudServer;
     private int contadorTemp;
     private final int limite = 20;

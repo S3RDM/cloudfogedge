@@ -1,7 +1,7 @@
 package cloudfogedge;
 import java.util.Random;
 
-public class EdgeNode {
+public class EdgeNode{
     private FogNode fogNode;
     private int edgeID;
     private Random random;

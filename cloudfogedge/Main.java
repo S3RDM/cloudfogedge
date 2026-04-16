@@ -15,7 +15,7 @@ public class Main{
             }
         }
         boolean continuar = true;
-        while(continuar){
+        while(continuar){ 
             for(int i = 0; i < edgeNodes.length; i++){
                 continuar = edgeNodes[i].datos();
                 if (!continuar) break;

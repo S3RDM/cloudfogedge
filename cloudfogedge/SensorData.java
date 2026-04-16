@@ -16,7 +16,7 @@ public class SensorData{
     public double getTemperatura(){
         return temperatura;
     }
-
+ 
     @Override
     public String toString(){
         return "Sensor: " + sensorID + ", Temperatura: " + temperatura;
