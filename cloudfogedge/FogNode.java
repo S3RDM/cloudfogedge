@@ -4,25 +4,27 @@ public class FogNode {
     private CloudServer cloudServer;
     private int contadorTemp;
     private final int limite = 20;
+    private int fogID;
 
-    public FogNode(CloudServer cloudServer){
+    public FogNode(int fogID, CloudServer cloudServer) {
+        this.fogID = fogID;
         this.cloudServer = cloudServer;
+        this.contadorTemp = 0;
     }
 
-    public boolean procesarDatos(SensorData dato){
-        System.out.println("FogNode recibe: " + dato);
+    public boolean procesarDatos(SensorData dato, int edgeID){
+        System.out.println("FogNode " + fogID + "recibe de " + edgeID + ": " + dato);
 
         if(dato.getTemperatura() > 30){
             contadorTemp++;
-            System.out.println("Temperatura alta detectada.");
+            System.out.println("Temperatura alta detectada: " + contadorTemp);
         }
-        cloudServer.saveData(dato);
+        cloudServer.guardarDato(dato);
         
         if (contadorTemp >= limite) {
-            System.out.println("\n--- Limite de 20 temperaturas alcanzado ---");
+            System.out.println("\nLimite de 20 temperaturas alcanzado por fog " + fogID);
             return false;
         }
-
         return true;
     }
 }

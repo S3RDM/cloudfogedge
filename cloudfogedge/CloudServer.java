@@ -2,14 +2,18 @@ package cloudfogedge;
 import java.util.ArrayList;
 
 public class CloudServer{
-    private ArrayList<SensorData> dataList;
-
+    private SensorData[] dataList;
+    private int cont;
+    
     public CloudServer(){
-        dataList = new ArrayList<>();
+        dataList = new SensorData[1000];
+        cont = 0;
     }
 
-    public void saveData(SensorData data){
-        dataList.add(data);
+    public void guardarDato(SensorData data){
+        if (cont < dataList.length) {
+            dataList[cont++] = data;
+        }
     }
 
     public void resumen(){
@@ -17,6 +21,6 @@ public class CloudServer{
         for (SensorData data : dataList) {
             System.out.println(data);
         }
-        System.out.println("Total de datos: " + dataList.size());
+        System.out.println("Total de datos: " + cont);
     }
 }

@@ -3,20 +3,20 @@ import java.util.Random;
 
 public class EdgeNode {
     private FogNode fogNode;
+    private int edgeID;
     private Random random;
 
-    public EdgeNode(FogNode fogNode) {
+    public EdgeNode(int edgeID, FogNode fogNode){
+        this.edgeID = edgeID;
         this.fogNode = fogNode;
         this.random = new Random();
     }
 
-    public void datos(int numData){
-        for (int i = 0; i < numData; i++){
-            String sensorId = "Sensor-" + (i + 1);
+    public boolean datos(){
             double temperatura = 15 + (40 - 15) * random.nextDouble();
-            SensorData dato = new SensorData(sensorId, temperatura);
-            System.out.println("EdgeNode genera: " + dato);
-            fogNode.procesarDatos(dato);
-        }
+            String sensorID = "F-E" + edgeID;
+            SensorData dato = new SensorData(sensorID, temperatura);
+            System.out.println("Edge " + edgeID + " genera: " + dato);
+            return fogNode.procesarDatos(dato, edgeID);
     }
 }
